@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/pcdepo" mode="replace">
+        <exclude pattern="/apps/pcdepo/install/*" />
+    </filter>
+    <filter root="/apps/pcdepo/clientlibs" mode="replace"/>
+    <filter root="/apps/pcdepo/components" mode="replace"/>
+    <filter root="/content/pcdepo" mode="replace"/>
+    <filter root="/etc/map/http/localhost_any" mode="replace"/>
+</workspaceFilter>

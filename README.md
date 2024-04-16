@@ -1,2 +1,2 @@
-# PCDepo
- Repo tracking the PCDepo marketing project.
+# pcdepo-bundle
+ Repo tracking changes for the PCDepo marketing project.
