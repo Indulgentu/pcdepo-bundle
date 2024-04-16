@@ -22,3 +22,5 @@ reports/
 .env.production.local
 npm-debug.log*
 *.log
+.storybook
+clientlib-generator/

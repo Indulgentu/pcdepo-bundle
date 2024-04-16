@@ -6,8 +6,8 @@
   "main": "src/main/webpack/site/main.ts",
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
-    "dev": "webpack --env dev --config ./webpack.dev.js && node ./clientlib-generator/bin/clientlib-cli.js --verbose",
-    "prod": "webpack --config ./webpack.prod.js && node ./clientlib-generator/bin/clientlib-cli.js --verbose",
+    "dev": "webpack --env dev --config ./webpack.dev.js && npm install --prefix ./clientlib-generator && node ./clientlib-generator/bin/clientlib-cli.js --verbose",
+    "prod": "webpack --config ./webpack.prod.js && npm install --prefix ./clientlib-generator && node ./clientlib-generator/bin/clientlib-cli.js --verbose",
     "start": "webpack-dev-server --open --config ./webpack.dev.js"
   },
   "devDependencies": {
