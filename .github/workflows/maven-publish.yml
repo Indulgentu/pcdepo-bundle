@@ -52,7 +52,9 @@ jobs:
       
           # A file, directory or wildcard pattern that describes what to upload
           # Required.
-          path: /runner/_work/pcdepo-bundle/**/target/
+          path: | 
+            /home/runner/work/pcdepo-bundle/pcdepo-bundle/**/target/
+            ./maven.log
       
           # The desired behavior if no files are found using the provided path.
           # Available Options:
