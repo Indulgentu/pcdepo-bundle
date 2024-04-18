@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - develop
+  workflow_dispatch:
+        
+jobs:
+  build:
+    environment: 
+      name: develop
+      url: https://pcdepodev.alexbam.me/
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+  
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Run
+      run: |
+        echo "Running workflow on ${{ env.CURRENV }}"
+        echo "Working on ${{ github.ref_name }}"
+        
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        server-id: me.alexbam.pcdepo # Value of the distributionManagement/repository/id field of the pom.xml
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
+        
+    - name: Maven Build
+      run: |
+        echo "Running Maven Build with the below command:"
+        mvn clean install -P generateConsumerPom -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn --log-file maven.log
+    
+    - name: Upload bundle artifacts
+      uses: actions/upload-artifact@v4
+      with:
+          name: artifacts
+          path: /home/runner/work/pcdepo-bundle/pcdepo-bundle/**/target/
+          if-no-files-found: warn
+    
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      with:
+          name: artifacts
+          path: ./maven.log
+
+          if-no-files-found: warn
+
+
+
+
+
+          
