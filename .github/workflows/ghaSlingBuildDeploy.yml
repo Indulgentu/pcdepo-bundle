@@ -56,6 +56,10 @@ jobs:
           path: ./maven.log
 
           if-no-files-found: warn
+    outputs:
+      pomVersion: ${{ steps.project.outputs.version }}
+    
+        
   deploy:
     environment: 
         name: develop
@@ -74,8 +78,8 @@ jobs:
           name: artifacts
       - name: 🚀 Deploying to ${{ vars.CURRENV }}
         run: |
-          echo 'Deploying ${{ env.RELEASE_VERSION }} package'
-          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./core/target/core-${{ env.RELEASE_VERSION }}.jar -F name=core-${{ env.RELEASE_VERSION }}.jar -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
-          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./ui.apps/target/ui.apps-${{ env.RELEASE_VERSION }}.zip -F name=ui.apps-${{ env.RELEASE_VERSION }}.zip -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
+          echo 'Deploying ${{ needs.build.outputs.pomVersion }} package'
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./core/target/core-${{ needs.build.outputs.pomVersion }}.jar -F name=core-${{ needs.build.outputs.pomVersion }}.jar -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./ui.apps/target/ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F name=ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
 
           
