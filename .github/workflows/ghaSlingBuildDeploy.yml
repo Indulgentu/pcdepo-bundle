@@ -32,10 +32,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Extract Maven project version
       run: echo "version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> "$GITHUB_ENV"
-      id: project
 
     - name: Show extracted Maven project version
-      run: echo ${{ steps.project.outputs.version }}
+      run: echo $version
       
     - name: Maven Build
       run: |
@@ -57,7 +56,7 @@ jobs:
 
           if-no-files-found: warn
     outputs:
-      pomVersion: ${{ steps.project.outputs.version }}
+      pomVersion: $version
     
         
   deploy:
