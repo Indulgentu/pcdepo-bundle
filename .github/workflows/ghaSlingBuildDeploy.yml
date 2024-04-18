@@ -31,9 +31,12 @@ jobs:
         server-id: me.alexbam.pcdepo # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Extract Maven project version
-      run: |
-        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
-        echo "POM version returned: ${{ env.RELEASE_VERSION }}"
+      run: echo ::set-output name=version::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+      id: project
+
+    - name: Show extracted Maven project version
+      run: echo ${{ steps.project.outputs.version }}
+      
     - name: Maven Build
       run: |
         echo "Running Maven Build with mvn clean install. This is a quiet operation. Logs will be uploaded separately."
