@@ -30,7 +30,8 @@ jobs:
         distribution: 'temurin'
         server-id: me.alexbam.pcdepo # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-        
+    - name: Extract Maven project version
+        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
     - name: Maven Build
       run: |
         echo "Running Maven Build with mvn clean install. This is a quiet operation. Logs will be uploaded separately."
@@ -61,13 +62,18 @@ jobs:
     needs: build
     
     steps:
+      - name: Setup Run
+        run: |
+        
       - name: Download Artifacts
         uses: actions/download-artifact@v4.1.5
         with:
           # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
           name: artifacts
-    
-          
-
+      - name: 🚀 Deploying to ${{ vars.CURRENV }}
+        run: |
+          echo 'Deploying ${{ env.RELEASE_VERSION }} package'
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./core/target/core-${{ env.RELEASE_VERSION }}.jar -F name=core-${{ env.RELEASE_VERSION }}.jar -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./ui.apps/target/ui.apps-${{ env.RELEASE_VERSION }}.zip -F name=ui.apps-${{ env.RELEASE_VERSION }}.zip -F force=true -F install=true https://pcdepodev.alexbam.me/bin/cpm/package.service.html
 
           
