@@ -1,6 +1,9 @@
 'use strict';
 
 const path = require('path');
+// Add Tailwind CSS and PostCSS configuration
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,18 +17,7 @@ const resolve = {
     extensions: ['.js', '.ts'],
     plugins: [new TSConfigPathsPlugin({
         configFile: './tsconfig.json'
-    })],
-    fallback: { 
-        "path": require.resolve("path-browserify"),
-        "crypto": require.resolve("crypto-browserify"),
-        "os": require.resolve("os-browserify/browser"),
-        "vm": require.resolve("vm-browserify"),
-        "stream": require.resolve("stream-browserify"),
-        "tty": require.resolve("tty-browserify"),
-        "fs": false,
-        "perf_hooks": false,
-        "module": false
-    }
+    })]
 };
 
 module.exports = {
@@ -80,7 +72,8 @@ module.exports = {
                             postcssOptions: {
                               plugins: {
                                 'postcss-import': {},
-                                autoprefixer: {},
+                                tailwindcss,
+                                autoprefixer
                               }
                             },
                         },

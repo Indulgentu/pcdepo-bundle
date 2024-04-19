@@ -4,7 +4,6 @@ import './main.scss';
 // Typescript/Javascript
 import './util.js';
 window.$ = require( "jquery" );
-require("98.css");
 require("slick-carousel");
 
 // import all files under the components directory
