@@ -17,24 +17,24 @@
         vertical-align: text-bottom;
     }
 
-    &-wrapper {
-        width: 100%;
-        display: flex;
+    // &-wrapper {
+    //     width: 100%;
+    //     display: flex;
 
-        &.slick-initialized {
-            .pm-hero-item.slick-slide {
-                display: flex;
-            }
+    //     &.slick-initialized {
+    //         .pm-hero-item.slick-slide {
+    //             display: flex;
+    //         }
     
-            .slick-list {
-                height: 100%;
+    //         .slick-list {
+    //             height: 100%;
 
-                .slick-track {
-                    height: 100%;
-                }
-            }
-        }
-    }
+    //             .slick-track {
+    //                 height: 100%;
+    //             }
+    //         }
+    //     }
+    // }
 
     &-item {
         display: flex;
