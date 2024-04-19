@@ -11,6 +11,7 @@ $(function() {
         $(el).slick({arrows: false});
         console.log("Initialized hero: ");
         console.log($(el));
+        console.log("This is a small change for me, a great leap for this project.");
     }
 
     $(SELECTORS.heroWrapper).each(function() {
