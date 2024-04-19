@@ -79,7 +79,7 @@ jobs:
       - name: 🚀 Deploying to ${{ vars.CURRENV }}
         run: |
           echo 'Deploying ${{ needs.build.outputs.pomVersion }} package'
-          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./core/target/core-${{ needs.build.outputs.pomVersion }}.jar -F name=core-${{ needs.build.outputs.pomVersion }}.jar -F force=true -F install=true ${{ vars.SLINGHOST }}
-          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./ui.apps/target/ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F name=ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F force=true -F install=true ${{ vars.SLINGHOST }}
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./core/target/core-${{ needs.build.outputs.pomVersion }}.jar -F name=core-${{ needs.build.outputs.pomVersion }}.jar -F force=true -F install=true ${{ vars.SLINGHOSTBUNDLE }}
+          curl -u ${{ secrets.SLINGUSER }}:${{ secrets.SLINGPASSWORD }} -F file=@./ui.apps/target/ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F name=ui.apps-${{ needs.build.outputs.pomVersion }}.zip -F force=true -F install=true ${{ vars.SLINGHOSTFE }}
 
           
