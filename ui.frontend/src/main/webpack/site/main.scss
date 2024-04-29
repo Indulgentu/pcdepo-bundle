@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @import '~normalize-scss/sass/normalize';
 
-@import '../base/sass/shared';
+@import '../base/sass/*.scss';
 
 
 /* Elements */
