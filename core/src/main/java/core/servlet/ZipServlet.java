@@ -17,7 +17,7 @@
 package core.servlet;
 
 import java.io.IOException;
-import java.io.Writer;
+
 import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipOutputStream;
 import java.util.zip.ZipEntry;
@@ -32,8 +32,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 /**
  * Download servlet

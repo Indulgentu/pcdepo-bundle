@@ -11,10 +11,8 @@ module.exports = env => {
 
     return merge(common, {
         mode: 'development',
-        performance: {
-            hints: 'warning',
-            maxAssetSize: 1048576,
-            maxEntrypointSize: 1048576
+        entry: {
+            site: SOURCE_ROOT + '/static/main.js'
         },
         plugins: [
             new HtmlWebpackPlugin({
@@ -23,7 +21,7 @@ module.exports = env => {
         ],
         devServer: {
             proxy: [{
-                context: ['/content', '/etc.clientlibs', '/libs'],
+                context: ['/content', '/etc.clientlibs', '/libs', '/apps/pcdepo/clientlibs/'],
                 target: 'http://localhost:8080',
             }],
             client: {

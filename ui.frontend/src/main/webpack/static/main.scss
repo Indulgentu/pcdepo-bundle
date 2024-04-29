@@ -1,0 +1,18 @@
+
+@import '~normalize-scss/sass/normalize';
+
+@import '../base/sass/*.scss';
+
+/* Components */
+@import './components/**/*.scss';
+@import './components/**/**/*.scss';
+
+
+
+body > * {
+    @media (min-width: $screen-small) {
+        margin: 0 auto;
+        padding-right: 118px;
+        padding-left: 118px;
+    }
+}
