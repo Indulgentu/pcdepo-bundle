@@ -1,7 +1,7 @@
 .pcd-hero {
     letter-spacing: 1px;
 
-    border-radius: 20px;
+    border-radius: 0;
     -webkit-box-shadow: 0px 6px 12px -7px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 6px 12px -7px rgba(0,0,0,0.75);
     box-shadow: 0px 6px 12px -7px rgba(0,0,0,0.75);
@@ -17,6 +17,11 @@
         margin: 0 auto;
         background-color: white;
         color: black;
+    }
+
+    
+    @media (min-width: $screen-medium) {
+        border-radius: 20px;
     }
 
     &--wrapper {
@@ -146,11 +151,6 @@
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            border-radius: 20px;
-
-            @media (min-width: $screen-small) {
-                border-radius: 0;
-            }
         }
     }
 

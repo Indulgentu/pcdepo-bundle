@@ -1,0 +1,243 @@
+.pcd-nav {
+    background-color: $main-navy;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    @include boxShadow;
+
+    @media (min-width: $screen-medium) {
+        margin-top: 10px;
+        border-radius: 15px;
+        flex-direction: row;
+    }
+
+    .heading-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        @media (min-width: $screen-medium) {
+            width: auto;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4.5px;
+            margin-left: auto;
+            margin-right: 20px;
+
+            span {
+                height: 3px;
+                width: 25px;
+                background-color: white;
+                border-radius: 20px;
+            }
+
+            &.active {
+                span {
+                    display: none;
+                }
+
+                .close {
+                    display: block;
+                }
+            }
+
+            .close {
+                display: none;
+                font-size: 25px;
+            }
+
+            @media (min-width: $screen-medium) {
+                display: none;
+            }
+        }
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        max-width: fit-content;
+        
+        .logoimg {
+            max-height: 85px;
+        }
+
+        .logotext {
+            line-height: 15px;
+            font-family: 'Racing Sans One';
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            width: 90px;
+            
+            span:last-of-type {
+                padding-left: 15px;
+            }
+        }
+        
+        margin-right: 25px;
+    }
+
+    &__menu {
+        display: none;
+        width: 100%;
+        margin-bottom: 25px;
+
+        @media (min-width: $screen-medium) {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-bottom: 0;
+        }
+
+        &items {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            font-size: 20px;
+
+            @media (min-width: $screen-medium) {
+                flex-direction: row;
+                padding: unset;
+                font-size: 15px;
+                gap: 15px;
+            }
+
+            .menuitem {
+                position: relative;
+                margin-bottom: 8px;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+
+                @media (min-width: $screen-medium) {
+                    display: block;
+                    width: initial;
+                    margin-bottom: unset;
+                }
+            }
+        }
+
+        
+        a {
+            transition: color ease-in 0.2s;
+        }
+
+        a:hover, a:focus {
+            color: #A3B4F1;
+        }
+    }
+
+    &__secnav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        font-size: 20px;
+        
+        @media (min-width: $screen-medium) {
+            margin-left: auto;
+            margin-right: 25px;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        :not(:last-child) {
+            &:after {
+                content: '';
+                display: inline-block;
+                border-right: 0.5px solid rgba($color: white, $alpha: 0.5);
+                padding-right: 10px;
+                height: 20px;
+                vertical-align: middle;
+
+                @media (min-width: $screen-medium) {
+                    height: 15px;
+                }
+            }
+        }
+
+        .shoppingcart {
+            position: relative;
+
+            .amount {
+                display: inline-block;
+                position: absolute;
+                background-color: red;
+                color: white;
+                font-weight: 700;
+                width: 14px;
+                height: 14px;
+                font-size: 11px;
+                border-radius: 20px;
+                padding-left: 0.5px;
+                text-align: center;
+                left: 8px;
+                bottom: -5px;
+            }
+        }
+    }
+
+    &__subnav {
+        display: none;
+        position: relative;
+        width: 100%;
+        z-index: 3;
+        
+        @media (min-width: $screen-medium) {
+            position: absolute;
+            width: initial;
+        }
+
+        .container {
+            background-color: $main-navy;
+            margin-top: 5px;
+            padding: 15px;
+            border-radius: 20px;
+            min-width: 100%;
+    
+            @include boxShadow;
+
+            @media (min-width: $screen-medium) {
+                min-width: max-content;
+                margin-top: 35px;
+            }
+        }
+
+
+        &.active {
+            display: flex;
+        }
+
+        &--dropdown {
+            background: none;
+            background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.637 9.67a1 1 0 0 1 1.41 0l3.59 3.54 3.54-3.54a1 1 0 1 1 1.41 1.42l-4.24 4.24a.998.998 0 0 1-1.42 0l-4.29-4.24a.999.999 0 0 1 0-1.42Z" fill="white"/></svg>');
+            background-size: 100%;
+            border: none;
+            height: 18px;
+            transition: transform .15s linear;
+            width: 18px;
+            vertical-align: middle;
+            margin-left: auto;
+
+            &.active {
+                transform: rotate(-180deg);
+            }
+
+            @media (min-width: $screen-medium) {
+                margin-left: unset;
+            }
+        }
+    }
+    
+}

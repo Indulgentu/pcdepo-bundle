@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Unlock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Unlock&display=swap');
+
 body {
     background-color: #EEEEEE;
     font-family: 'Nunito', sans-serif;
@@ -8,7 +12,12 @@ body {
 .content-wrapper > * {
     @media (min-width: $screen-medium) {
         margin: 0 auto;
+        max-width: 1440px;
         padding-right: 118px;
         padding-left: 118px;
+        
+        &:not(:first-child) {
+            margin-top: 50px;
+        }
     }
 }

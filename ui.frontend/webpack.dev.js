@@ -9,6 +9,15 @@ module.exports = env => {
 
     const writeToDisk = env && Boolean(env.writeToDisk);
 
+    let htmlPageNames = ['header'];
+    
+    let multipleHtmlPlugins = htmlPageNames.map(name => {
+      return new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, SOURCE_ROOT + `/static/${name}.html`) , // relative path to the HTML files
+        filename: `${name}.html`, // output HTML files
+      })
+    });
+    
     return merge(common, {
         mode: 'development',
         entry: {
@@ -18,11 +27,13 @@ module.exports = env => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, SOURCE_ROOT + '/static/index.html')
             })
-        ],
+        ].concat(multipleHtmlPlugins),
         devServer: {
             proxy: [{
                 context: ['/content', '/etc.clientlibs', '/libs', '/apps/pcdepo/clientlibs/'],
                 target: 'http://localhost:8080',
+                secure: false,
+                changeOrigin: true
             }],
             client: {
                 overlay: {

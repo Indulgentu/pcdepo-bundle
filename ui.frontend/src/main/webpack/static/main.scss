@@ -7,12 +7,8 @@
 @import './components/**/*.scss';
 @import './components/**/**/*.scss';
 
-
-
-body > * {
-    @media (min-width: $screen-small) {
-        margin: 0 auto;
-        padding-right: 118px;
-        padding-left: 118px;
+.content-wrapper > * {
+    @media (min-width: $screen-medium) {
+        max-width: 1440px;
     }
 }
