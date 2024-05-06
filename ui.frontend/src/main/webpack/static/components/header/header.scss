@@ -1,0 +1,32 @@
+.pcd-nav {
+    background-color: $main-navy;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    @include boxShadow;
+
+    &__logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .logoimg {
+            max-height: 85px;
+        }
+    }
+
+    &__menu {
+        margin-left: 15px;
+
+        &items {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+    }
+    
+}
