@@ -192,7 +192,8 @@
         display: none;
         position: relative;
         width: 100%;
-
+        z-index: 3;
+        
         @media (min-width: $screen-medium) {
             position: absolute;
             width: initial;

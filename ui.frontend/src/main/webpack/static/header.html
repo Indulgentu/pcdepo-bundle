@@ -1,9 +1,7 @@
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link href="/apps/pcdepo/clientlibs/clientlib-site/css/site.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1775a1bbc1.js" crossorigin="anonymous"></script>
     <script src="/apps/pcdepo/clientlibs/clientlib-site/js/site.js"></script>
 </head>
 
@@ -11,26 +9,68 @@
     <div class="content-wrapper">
         <header>
             <nav class="pcd-nav">
-                <div class="pcd-nav__logo">
-                    <img class="logoimg" src="/clientlib-site/images/logo_header.svg">
-                    <span>PCDepo</span>
+                <div class="heading-container">
+                    <a class="pcd-nav__logo" href="#" aria-label="PCDepo">
+                        <img class="logoimg" src="/clientlib-site/images/logo_header.svg">
+                        <div class="logotext">
+                            <span>PC</span>
+                            <span>Depo</span>
+                        </div>
+                    </a>
+
+                    <a class="hamburger" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <i class="fa-solid fa-xmark close"></i>
+                    </a>
                 </div>
 
                 <div class="pcd-nav__menu">
                     <ul class="pcd-nav__menuitems">
-                        <li>
+                        <li class="menuitem">
                             <a href="#">Home</a>
                         </li>
-                        <li>
+                        <li class="menuitem">
                             <a href="#">Products</a>
+                            <button type="button" class="pcd-nav__subnav--dropdown" aria-expanded="false"></button>
+                            <div class="pcd-nav__subnav">
+                                <ul class="container">
+                                    <li><a href="#">GPUs</a></li>
+                                    <li><a href="#">CPUs</a></li>
+                                    <li><a href="#">Motherboards</a></li>
+                                    <li><a href="#">Memory Kits</a></li>
+                                    <li><a href="#">Storage</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
+                        <li class="menuitem">
                             <a href="#">Categories</a>
+                            <button type="button" class="pcd-nav__subnav--dropdown" aria-expanded="false"></button>
+                            <div class="pcd-nav__subnav">
+                                <ul class="container">
+                                    <li><a href="#">Verified Builds</a></li>
+                                    <li><a href="#">Community Builds</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
+                        <li class="menuitem">
                             <a href="#">Completed Builds</a>
                         </li>
                     </ul>
+
+                    <div class="pcd-nav__secnav">
+                        <a class="search" href="#">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a class="login" href="#">
+                            <span>Login</span>
+                        </a>
+                        <a class="shoppingcart" href="#" aria-label="Shopping Cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <span class="amount" aria-label="2 products in cart">2</span>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>

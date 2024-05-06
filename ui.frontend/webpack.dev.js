@@ -31,7 +31,7 @@ module.exports = env => {
         devServer: {
             proxy: [{
                 context: ['/content', '/etc.clientlibs', '/libs', '/apps/pcdepo/clientlibs/'],
-                target: 'https://pcdepodev.alexbam.me',
+                target: 'http://localhost:8080',
                 secure: false,
                 changeOrigin: true
             }],
